@@ -1,1 +1,1 @@
-# This is a repository with replication materials for the Master Thesis 
+### This is a repository with replication materials for the Master Thesis 

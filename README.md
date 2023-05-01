@@ -1,4 +1,5 @@
-### This is a repository with replication materials for the Master Thesis 
+### This is a repository with replication materials for the Master Thesis: 
+#### "Populist communication as a political strategy – A supervised text classification of parliamentary speeches in Poland"
 
 
 #### Note on the data availability:

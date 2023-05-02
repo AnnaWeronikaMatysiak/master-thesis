@@ -1,0 +1,166 @@
+
+====================================================================
+                                            Dependent variable:     
+                                        ----------------------------
+                                                                    
+                                             (1)            (2)     
+--------------------------------------------------------------------
+leader                                     0.008***      0.008***   
+                                           (0.003)        (0.003)   
+                                                                    
+change                                     -0.0001        -0.005    
+                                           (0.002)        (0.006)   
+                                                                    
+party_club_endAWS                                         -0.048*   
+                                                          (0.028)   
+                                                                    
+party_club_endBBWR                                        -0.065    
+                                                          (0.053)   
+                                                                    
+party_club_endBiało-Czerwoni                              -0.058*   
+                                                          (0.034)   
+                                                                    
+party_club_endDom Ojczysty                                -0.020    
+                                                          (0.037)   
+                                                                    
+party_club_endKKL                                         -0.050    
+                                                          (0.031)   
+                                                                    
+party_club_endKL                                          -0.039    
+                                                          (0.033)   
+                                                                    
+party_club_endKPN                                         -0.057    
+                                                          (0.043)   
+                                                                    
+party_club_endLPR                                         -0.030    
+                                                          (0.031)   
+                                                                    
+party_club_endMniejszość Niemiecka                        -0.050    
+                                                          (0.037)   
+                                                                    
+party_club_endNZ                                          -0.036    
+                                                          (0.028)   
+                                                                    
+party_club_endPIS                                         -0.053*   
+                                                          (0.028)   
+                                                                    
+party_club_endPJN                                         -0.047    
+                                                          (0.029)   
+                                                                    
+party_club_endPO                                         -0.056**   
+                                                          (0.029)   
+                                                                    
+party_club_endPO-KO                                       -0.063*   
+                                                          (0.037)   
+                                                                    
+party_club_endPP                                          -0.049    
+                                                          (0.036)   
+                                                                    
+party_club_endPPP                                         -0.025    
+                                                          (0.044)   
+                                                                    
+party_club_endPPS                                          0.056    
+                                                          (0.039)   
+                                                                    
+party_club_endPrawica RP                                  -0.025    
+                                                          (0.031)   
+                                                                    
+party_club_endPSL                                         -0.041    
+                                                          (0.032)   
+                                                                    
+party_club_endPSL-KP                                      -0.047    
+                                                          (0.033)   
+                                                                    
+party_club_endRKN                                         -0.017    
+                                                          (0.034)   
+                                                                    
+party_club_endRP                                           0.054    
+                                                          (0.041)   
+                                                                    
+party_club_endRuch Ludowo Narodowy                        -0.022    
+                                                          (0.031)   
+                                                                    
+party_club_endRuch Palikota                               -0.063*   
+                                                          (0.035)   
+                                                                    
+party_club_endSamoobrona                                  -0.037    
+                                                          (0.031)   
+                                                                    
+party_club_endSDPL                                        -0.025    
+                                                          (0.029)   
+                                                                    
+party_club_endSG                                          -0.033    
+                                                          (0.036)   
+                                                                    
+party_club_endSKL                                         -0.033    
+                                                          (0.028)   
+                                                                    
+party_club_endSLD                                         -0.027    
+                                                          (0.029)   
+                                                                    
+party_club_endUP                                          -0.028    
+                                                          (0.032)   
+                                                                    
+party_club_endUW                                          -0.052*   
+                                                          (0.030)   
+                                                                    
+party_club_endZP                                         -0.064**   
+                                                          (0.029)   
+                                                                    
+party_club_startBBWR                                       0.002    
+                                                          (0.029)   
+                                                                    
+party_club_startKKW Lewicy i Demokratów                  -0.030**   
+                                                          (0.012)   
+                                                                    
+party_club_startKPN                                       -0.001    
+                                                          (0.020)   
+                                                                    
+party_club_startLPR                                      -0.029***  
+                                                          (0.010)   
+                                                                    
+party_club_startMniejszość Niemiecka                      -0.003    
+                                                          (0.028)   
+                                                                    
+party_club_startPIS                                        0.005    
+                                                          (0.007)   
+                                                                    
+party_club_startPO                                         0.006    
+                                                          (0.009)   
+                                                                    
+party_club_startPO-KO                                      0.011    
+                                                          (0.022)   
+                                                                    
+party_club_startPSL                                       -0.018    
+                                                          (0.017)   
+                                                                    
+party_club_startROP                                       -0.001    
+                                                          (0.012)   
+                                                                    
+party_club_startSamoobrona                                 0.004    
+                                                          (0.011)   
+                                                                    
+party_club_startSLD                                      -0.030***  
+                                                          (0.012)   
+                                                                    
+party_club_startSLD-UP                                   -0.031**   
+                                                          (0.012)   
+                                                                    
+party_club_startUP                                        -0.029*   
+                                                          (0.017)   
+                                                                    
+party_club_startUW                                        -0.001    
+                                                          (0.011)   
+                                                                    
+opp                                        0.011**         0.007    
+                                           (0.005)        (0.013)   
+                                                                    
+gov                                         0.003         -0.0004   
+                                           (0.004)        (0.005)   
+                                                                    
+minister                                                  -0.006    
+                                                          (0.006)   
+                                                                    
+====================================================================
+====================================================================
+Note:                                    *p<0.1; **p<0.05; ***p<0.01

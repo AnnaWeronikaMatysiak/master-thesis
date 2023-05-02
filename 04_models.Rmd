@@ -4,7 +4,7 @@ output: html_document
 date: "2023-04-10"
 ---
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(plm)
 library(tidyverse)
 library(gplots)
@@ -21,7 +21,13 @@ df<-read.csv('data/scores.csv')
 
 ```{r}
  df$change[df$change==2] <- 1
+ df$party_club_start[df$party_club_start=="SDLUP"] <- "SLD-UP"
 ```
+
+```{r}
+df
+```
+
 
 ```{r warning=FALSE}
 plotmeans(diff~ sejm, data = df)
@@ -40,7 +46,7 @@ df %>%
 
 
 ```{r}
-ml1 <- plm( diff~ leader+change+opp+gov, data=data, index=c("name", "sejm"), model="within")
+ml1 <- plm( diff~ leader+change+opp+gov, data=df, index=c("name", "sejm"), model="within")
 summary(ml1)
 ```
 

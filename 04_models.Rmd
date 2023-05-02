@@ -1,0 +1,149 @@
+---
+title: "04_models"
+output: html_document
+date: "2023-04-10"
+---
+
+```{r warning=FALSE}
+library(plm)
+library(tidyverse)
+library(gplots)
+library(lmtest)
+library(lmtest)
+library(texreg)
+library(sandwich)
+library(lmtest)
+```
+
+```{r}
+df<-read.csv('data/scores.csv')
+```
+
+```{r}
+ df$change[df$change==2] <- 1
+```
+
+```{r warning=FALSE}
+plotmeans(diff~ sejm, data = df)
+```
+
+
+```{r}
+df %>%
+  #filter(sejm %in% c(3, 6, 7)) %>%
+  ggplot(aes(sejm, diff))+
+  geom_violin(aes(group = sejm),width = 0.7, color = "gray") +
+  geom_jitter(aes(color = abs(diff) >= 0.1), alpha = 0.1, width = 0.08) +  scale_color_manual(values = c("black", "red")) +
+  geom_hline(yintercept = mean(df$diff), color = "red", linetype = "dashed")+theme_minimal()+
+  theme(legend.position="none")+labs(y= "score", x = "term") #title="Distribution of the scores"
+```
+
+
+```{r}
+ml1 <- plm( diff~ leader+change+opp+gov, data=data, index=c("name", "sejm"), model="within")
+summary(ml1)
+```
+
+```{r}
+plmtest(ml1, c("time"))
+#p-value <0.05 thus I need to control for time 
+```
+
+```{r}
+ml1_time <- plm( diff~ leader+change+opp+gov, data=df, index=c("name", "sejm"), model="within", effect = "twoways")
+summary(ml1_time)
+```
+
+
+```{r}
+bptest(ml1_time)
+#if p-value < 0.05 there is some heteroscedasticity, but here: 0.3967 >0.05 
+```
+
+```{r}
+pbgtest(ml1_time)
+#p-value: 2.2e-16 thus there is serial correlation
+```
+
+```{r warning=FALSE}
+pcdtest(ml1_time)
+```
+
+```{r}
+# heteroskedasticity and autocorrelation consistent standard errors
+ml1_hac<- coeftest(ml1, vcov = vcovHC(ml1, method = "arellano", type = "HC3"))
+ml1_hac
+```
+
+```{r}
+ml1_hac_pcse <- coeftest(ml1_time, 
+                                vcov = vcovBK(ml1_time, 
+                                              type="HC3", 
+                                              cluster = "group")) 
+
+ml1_hac_pcse
+```
+
+### with all variables
+
+```{r}
+ml2 <- plm( diff~ leader+opp+gov+minister+president_office+change+party_club_end+party_club_start, data=df, index=c("name", "sejm"), model="within")
+summary(ml2)
+```
+
+```{r}
+plmtest(ml2, c("time"))
+```
+
+
+```{r}
+ml2_time <- plm( diff~ leader+opp+gov+minister+president_office+change+party_club_end+party_club_start, data=df, index=c("name", "sejm"), model="within", effect = "twoways")
+summary(ml2_time)
+```
+
+```{r}
+bptest(ml2_time)
+```
+
+```{r}
+pbgtest(ml2_time)
+```
+
+```{r warning=FALSE}
+pcdtest(ml2_time)
+```
+
+```{r}
+# heteroskedasticity and autocorrelation consistent standard errors
+ml2_hac<- coeftest(ml2, vcov = vcovHC(ml2, method = "arellano", type = "HC3"))
+ml2_hac
+```
+
+
+
+
+
+```{r}
+ml1_hac_pcse <- coeftest(ml1_time, 
+                                vcov = vcovBK(ml1_time, 
+                                              type="HC3", 
+                                              cluster = "group")) 
+
+ml1_hac_pcse
+```
+
+
+```{r}
+ml2_hac_pcse <- coeftest(ml2_time, 
+                                vcov = vcovBK(ml2_time, 
+                                              type="HC3", 
+                                              cluster = "group")) 
+
+ml2_hac_pcse
+```
+
+```{r}
+library(stargazer)
+stargazer(ml1_hac_pcse, ml2_hac_pcse, type = "text", out="results")
+```
+
